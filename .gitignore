@@ -1,0 +1,24 @@
+.env
+### Django ###
+app/.env
+.ruff_cache
+logs/
+schema.yml
+public
+
+### macOS ###
+.DS_Store
+.AppleDouble
+.LSOverride
+### PyCharm ###
+.idea
+
+### Postgres ###
+dbdata/
+
+# Byte-compiled / optimized / DLL files
+*.py[cod]
+*$py.class
+
+### Cache Python ###
+*__pycache__*
