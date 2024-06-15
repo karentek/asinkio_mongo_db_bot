@@ -32,10 +32,12 @@ async def process_json(message: types.Message):
             return
 
         result = aggregate_salaries(dt_from, dt_upto, group_type)
-        response = (f"Labels: {result['labels']}\n"
-                    f"Dataset: {result['dataset']}")
-
-        await bot.send_message(chat_id=message.chat.id, text=response)
+        response = {
+            "dataset": result['dataset'],
+            "labels": result['labels']
+            }
+        response_text = json.dumps(response)
+        await bot.send_message(chat_id=message.chat.id, text=response_text)
 
     except json.JSONDecodeError:
         await message.reply(
